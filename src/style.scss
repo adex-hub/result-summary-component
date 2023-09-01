@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 18px; //unless otherwise specified
+  font-family: "Hanken Grotesk", sans-serif;
+}
+
+// Colors - Primary
+$light-red: hsl(0, 100%, 67%);
+$orangey-yellow: hsl(39, 100%, 56%);
+$green-teal: hsl(166, 100%, 37%);
+$cobalt-blue: hsl(234, 85%, 45%);
+
+//  Colors - Gradients
+$bg-slateblue: hsl(252, 100%, 67%);
+$bg-royalblue: hsl(241, 81%, 54%);
+$c-violetblue: hsla(256, 72%, 46%, 1);
+$c-persianblue: hsla(241, 72%, 46%, 0);
+
+//  Colors - Neutral
+$white: hsl(0, 0%, 100%);
+$pale-blue: hsl(221, 100%, 96%);
+$light-lavender: hsl(241, 100%, 89%);
+$dark-grayblue: hsl(224, 30%, 27%);
+
+// Bodycopy
+$medium: 500;
+$bold: 700;
+$extrabold: 800;
+
+body {
+  background: $pale-blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; //might cause issues.
+
+  //Utility classes
+  .red {
+    color: $light-red;
+    background: hsla(0, 100%, 67%, 0.1);
+  }
+  .yellow {
+    color: $orangey-yellow;
+    background: hsla(39, 100%, 56%, 0.1);
+  }
+  .green {
+    color: $green-teal;
+    background: hsl(166, 100%, 37%, 0.1);
+  }
+
+  .blue {
+    color: $cobalt-blue;
+    background: hsla(234, 85%, 45%, 0.1);
+  }
+  // Utility classes end here.
+
+  .result-summary-card {
+    width: 736px;
+    height: 512px;
+    display: flex;
+    background: white;
+    border-radius: 1.5rem;
+    transition: all 0.3s ease;
+    // align-items: center;
+    .result {
+      width: 368px;
+      display: flex;
+      height: inherit;
+      justify-content: flex-start;
+      background: linear-gradient(180deg, $bg-slateblue 30%, $bg-royalblue 70%);
+      border-radius: 1.5rem;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      .heading {
+        color: hsla(221, 100%, 96%, 0.7);
+        font-size: 1.3rem;
+        font-weight: $medium;
+        // padding: 20px 0 0 0;
+      }
+      .showcase-circle {
+        color: $white;
+        scale: 0.77;
+        margin: 0 auto;
+        font-size: 5rem;
+        font-weight: $extrabold;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient($c-violetblue, $c-persianblue);
+        line-height: 60px;
+        width: fit-content;
+        padding: 70px 79.6px;
+        border-radius: 130px;
+        span {
+          font-weight: $medium;
+          color: hsla(221, 100%, 96%, 0.3);
+          font-size: 20px;
+          line-height: 60px;
+        }
+      }
+      .remark {
+        padding: 0 4rem;
+        color: $white;
+        .remark-title {
+          font-size: 2rem;
+          // font-weight: $medium;
+        }
+        .remark-paragraph {
+          color: hsla(221, 100%, 96%, 0.7);
+          font-size: 18px;
+        }
+      }
+    }
+    .summary {
+      width: 368px;
+      padding: 0 0 0 40px;
+      color: $dark-grayblue;
+      .summary-title {
+        font-size: 1.3rem;
+        font-weight: $bold;
+        margin: 45px 0 30px 0;
+      }
+
+      .criteria {
+        width: 288px;
+        .criterion {
+          display: flex;
+          height: 56px;
+          align-items: center;
+          padding: 0 20px;
+          justify-content: space-between;
+          border-radius: 10px;
+          margin: 0 0 20px 0;
+          transition: 0.3s all ease;
+
+          .title {
+            display: flex;
+            align-items: center;
+            span {
+              font-weight: $medium;
+              margin: 0 0 0 10px;
+            }
+          }
+          .score {
+            color: $dark-grayblue;
+            font-weight: $extrabold;
+            span {
+              color: hsla(224, 30%, 27%, 0.6);
+            }
+          }
+        }
+        .criterion:hover {
+          transform: translateY(-3px);
+          cursor: pointer;
+        }
+      }
+      button {
+        border: none;
+        color: $white;
+        width: 288px;
+        height: 56px;
+        border-radius: 2rem;
+        margin: 20px 0 0 0;
+        background: $dark-grayblue;
+        transition: 0.3s all ease-in-out;
+        outline: none;
+      }
+      button:hover {
+        background: linear-gradient(
+          180deg,
+          $bg-slateblue 30%,
+          $bg-royalblue 70%
+        );
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+// Responsiveness
+@media (max-width: 750px) {
+  body {
+    overflow: hidden;
+    .result-summary-card {
+      scale: 0.8;
+    }
+  }
+}
+
+@media (max-width: 620px) {
+  body {
+    overflow: hidden;
+    .result-summary-card {
+      scale: 0.7;
+    }
+  }
+}
+
+@media (max-width: 528px) {
+  body {
+    justify-content: unset;
+    overflow: visible;
+    align-items: flex-start;
+    background: $white;
+    .result-summary-card {
+      scale: 1;
+      height: 100%;
+      width: 100%;
+      flex-direction: column;
+      border-radius: 0;
+      .result {
+        border-radius: 0 0 65px 65px;
+        height: 356px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        .heading {
+          transform: translateY(30px);
+        }
+        .showcase-circle {
+          scale: 0.54;
+        }
+        .remark {
+          padding: 0 1.3rem;
+          transform: translateY(-50px);
+          .remark-title {
+            font-size: 1.5rem;
+          }
+        }
+      }
+      .summary{
+        width: 100%;
+        padding: 0 20px; // Controls the padding required for mobile design.
+        .summary-title{
+          font-size: 1.3rem;
+          margin: 20px 0;
+        }
+        .criteria{
+          width: 100%;
+          .criterion{
+            margin: 0 0 1rem 0;
+          }
+        }
+        button{
+          width: 100%;
+          margin: 0.5rem 0 1.5rem 0;
+        }
+      }
+    }
+  }
+}
