@@ -62,6 +62,7 @@ const Area = ({className, icon, titleText, number}) => {
 };
 
 export default Area;
+```
 
 ### Continued development
 
